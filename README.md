@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# Patient Data Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project overview
 
-Currently, two official plugins are available:
+This project is a frontend application built with React and TypeScript using Vite. The goal is to manage patient data through a user-friendly interface. The application features include:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Retrieve Patient Data:** Fetch a list of patient records from an API.
+- **Patient Cards:** Display individual patient records in card format.
+- **Expand/Collapse Details:** Each card includes a button or icon to show more details.
+- **Modal for Editing/Adding:** Users can edit existing patient information or add new patients through a modal interface.
+- **Form Validations:** Ensure data accuracy and completeness using robust form validation.
+- **Optional Enhancements:** Smooth animations, responsive design, and notifications for successful or failed data modifications.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** with **TypeScript:** Core framework and language for building the UI.
+- **Vite:** Fast and modern development environment.
+- **Redux Toolkit:** For scalable and robust state management.
+- **React Router:** For client-side routing.
+- **Axios:** For handling API requests.
+- **React Hook Form & Zod:** For efficient form handling and validation.
+- **CSS Modules / Styled Components:** For custom styling.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Follow these steps to set up and run the project locally:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
+   ```bash
+   git clone <https://github.com/frontdeveloperchallenge/patient-data.git>
+   cd patient-data
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   cd patient-data
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   cd patient-data
+
+The application should now be running at http://localhost:5173.
+
+
+## Project Structure
+The project is organized to maintain clarity and scalability. Below is an overview of the folder structure:
+
+```bash
+/src
+ ├── /components       # Reusable UI components (PatientCard, Modal, Button, etc.)
+ ├── /pages            # Main pages/views (Home, Patients, NotFound, etc.)
+ ├── /hooks            # Custom hooks (e.g., usePatients)
+ ├── /services         # API service calls (patientService.ts)
+ ├── /styles           # Global and component-specific styles
+ ├── /utils            # Utility functions and helpers
+ ├── App.tsx           # Main app component including routing
+ ├── main.tsx          # Entry point of the application
+ └── index.css         # Global CSS
+
+## Usage
+
+Routing:
+The application uses React Router for navigation. Example routes include:
+
+/ - Home page.
+/patients - Patient management view.
+* - A fallback route for 404 Not Found.
+Data Fetching:
+Patient data is fetched from an external API using Axios. Modify the API endpoint in /services/patientService.ts as necessary.
+
+State Management:
+Redux Toolkit is used to manage the global state. This demonstrates the ability to handle more complex state interactions even in a small project.
+
+Forms & Validation:
+The Patient Form leverages React Hook Form and Zod to manage form state and validate inputs effectively.
+
+
+## Design decisions
+Tooling:
+Vite was chosen for its speed and simplicity, replacing CRA which is now deprecated. Redux Toolkit is used to showcase scalable state management skills.
+
+Custom Components:
+Avoiding ready-made UI libraries (e.g., MaterialUI) allows for demonstrating expertise in building reusable and maintainable UI components from scratch.
+
+Form Management:
+React Hook Form and Zod provide an efficient and robust way to handle form inputs and validations.
+
+## Optional enhancements
+Notifications:
+Consider integrating libraries such as react-toastify to show user-friendly notifications for successful or failed data operations.
+
+Animations:
+Libraries like framer-motion can be used to add smooth animations and improve overall user experience.
+
+## Running tests
+```bash
+npm run test
