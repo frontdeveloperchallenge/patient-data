@@ -13,6 +13,7 @@ const Patients = () => {
   const getPatients = usePatients();
   const { patients, loading } = getPatients;
 
+  // Since this app has no means to persist data, we’re storing the information in local storage for the time being.
   const storedPatientsJSON = localStorage.getItem("patients");
   const storedPatients = storedPatientsJSON && JSON.parse(storedPatientsJSON);
   const updatedPatients = storedPatients
@@ -86,40 +87,48 @@ const Patients = () => {
         <h1>Patient Data Management</h1>
       </section>
 
-      <div>
-        <section className="pagination">
-          <button onClick={handlePrev} disabled={currentPage === 1}>
-            Previous
-          </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button onClick={handleNext} disabled={currentPage === totalPages}>
-            Next
-          </button>
-        </section>
+      {patientsPerPage ? (
+        <div>
+          <section className="pagination">
+            <button onClick={handlePrev} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+            <button onClick={handleNext} disabled={currentPage === totalPages}>
+              Next
+            </button>
+          </section>
 
-        <section className="patients-container">
-          <div className="add-patient-btn">
-            <button onClick={handleAdd}>+</button>
-          </div>
+          <section className="patients-container">
+            <div className="add-patient-btn">
+              <button onClick={handleAdd}>+</button>
+            </div>
 
-          {patientsPerPage.map((p: Patient, i: number) => (
-            <PatientCard key={`${p.id}-${i}`} patient={p} onEdit={handleEdit} />
-          ))}
+            {patientsPerPage.map((p: Patient, i: number) => (
+              <PatientCard
+                key={`${p.id}-${i}`}
+                patient={p}
+                onEdit={handleEdit}
+              />
+            ))}
 
-          {openModal && (
-            <EditPatientModal
-              patient={selectedPatient!}
-              onSave={handleSave}
-              onClose={handleClose}
-              addPatient={addPatient}
-              patients={updatedPatients}
-            />
-          )}
-        </section>
-        <ToastContainer hideProgressBar transition={Zoom} />
-      </div>
+            {openModal && (
+              <EditPatientModal
+                patient={selectedPatient!}
+                onSave={handleSave}
+                onClose={handleClose}
+                addPatient={addPatient}
+                patients={updatedPatients}
+              />
+            )}
+          </section>
+          <ToastContainer hideProgressBar transition={Zoom} />
+        </div>
+      ) : (
+        <div className="no-data">No data to show.</div>
+      )}
     </>
   );
 };
