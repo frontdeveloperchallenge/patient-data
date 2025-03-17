@@ -2,24 +2,24 @@
 
 ## Project overview
 
-This project is a frontend application built with React and TypeScript using Vite. The goal is to manage patient data through a user-friendly interface. The application features include:
+This project is a frontend application built with React and TypeScript using Vite.
+The goal is to manage patient data through a user-friendly interface.
+The application features include:
 
-- **Retrieve patient data:** Fetch a list of patient records from an API.
+- **Retrieve patient data:** Fetch a list of patient records from this API (https://63bedcf7f5cfc0949b634fc8.mockapi.io/users).
 - **Patient cards:** Display individual patient records in card format.
 - **Expand/collapse eetails:** Each card includes a button or icon to show more details.
 - **Modal for editing/adding:** Users can edit existing patient information or add new patients through a modal interface.
-- **Form validations:** Ensure data accuracy and completeness using robust form validation.
-- **Optional enhancements:** Smooth animations, responsive design, and notifications for successful or failed data modifications.
+- **Form validations:** Ensures data accuracy and completeness using robust form validation.
+- **Enhancements:** Smooth animations, responsive design, and notifications for successful or failed data modifications.
 
 ## Technologies Used
 
 - **React** with **TypeScript** - Core framework and language for building the UI.
 - **Vite** - Fast and modern development environment.
-- **Redux Toolkit** - For scalable and robust state management.
 - **React Router** - For client-side routing.
 - **Axios** - For handling API requests.
 - **React Hook Form / Zod** - For efficient form handling and validation.
-- **React Testing Library** - For unit testing React components.
 - **CSS Modules** - For custom styling.
 
 ## Installation
@@ -52,30 +52,24 @@ The application should now be running at [http://localhost:5173](http://localhos
 ```
 /src
  ├── /components       # Reusable UI components (PatientCard, Modal, Button, etc.)
- ├── /pages            # Main pages/views (Home, Patients, NotFound, etc.)
  ├── /hooks            # Custom hooks (e.g., usePatients)
+ ├── /pages            # Main pages/views (Home, Patients, NotFound, etc.)
  ├── /services         # API service calls (patientService.ts)
- ├── /styles           # Global and component-specific styles
  ├── /utils            # Utility functions and helpers
- ├── /tests            # Unit tests using React Testing Library
  ├── App.tsx           # Main app component including routing
  ├── main.tsx          # Entry point of the application
- └── index.css         # Global CSS
+ └── index.scss        # Global SCSS
 ```
 
 ## Usage
 
 - **Routing:**
 The application uses React Router for navigation. Example routes include:
-  - `/` - Home page.
-  - `/patients` - Patient management view.
+  - `/` - Patient list page.
   - `*` - A fallback route for 404 Not Found.
 
 - **Data fetching:**
   Patient data is fetched from an external API (https://63bedcf7f5cfc0949b634fc8.mockapi.io/users) using Axios.
-
-- **State management:**
-  Redux Toolkit is used to manage the global state.
 
 - **Forms & validation:**
   The Patient Form uses React Hook Form and Zod to manage form state and validate inputs effectively.
@@ -96,13 +90,6 @@ The application uses React Router for navigation. Example routes include:
 - **Notifications:**
   Integrating `react-toastify` to show user-friendly notifications for successful or failed data operations.
 
-- **Animations:**
-  Libraries like `framer-motion` can be used to add smooth animations and improve overall user experience.
-
-## Running Tests
-
-Unit tests are implemented using **React Testing Library**. To run tests, use the following command:
-
-```sh
-npm run test
-```
+## Notes from developer
+  - Since this app has no means to persist data, we’re storing the information in local storage as of now.
+  - Considering the small application size, no state management was needed. Hence, no tools such as Redux/Redux toolkit were used
