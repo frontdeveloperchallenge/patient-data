@@ -1,0 +1,68 @@
+@use '../../index.scss' as *;
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.patient-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+
+  .patient-info {
+    margin-top: 12px;
+    text-align: center;
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .patient-date {
+      font-size: 14px;
+      color: $light-text-color;
+    }
+  }
+
+  .patient-details {
+    padding: 0 20px;
+    text-align: justify;
+
+    p {
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 2;
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      color: $primary-color;
+      padding-top: 8px;
+      text-decoration: none;
+      text-align: center;
+      &:hover {
+        color: $secondary-color
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .patient-card {
+    max-width: 100%;
+    padding: 12px;
+  }
+}
