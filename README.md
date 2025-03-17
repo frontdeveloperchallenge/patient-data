@@ -92,4 +92,4 @@ The application uses React Router for navigation. Example routes include:
 
 ## Notes from developer
   - Since this app has no means to persist data, we’re storing the information in local storage as of now.
-  - Considering the small application size, no state management was needed. Hence, no tools such as Redux/Redux toolkit were used
+  - Considering the small application size, no state management was needed. Hence, no tools such as Redux/Redux toolkit were used.
