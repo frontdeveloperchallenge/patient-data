@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+$primary-color: #4daad8;
+$secondary-color: #87bdd8;
+$secondary-lighter-color: aliceblue;
+$background-color: #f4f4f4;
+$text-color: #333;
+$light-text-color: #898989;
+$disabled-color: #b9b8b8;
+$error-color: red;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  color: $text-color;
+  background-color: $background-color;
+}

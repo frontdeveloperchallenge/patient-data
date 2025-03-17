@@ -1,0 +1,19 @@
+.patient-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.initials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+
+  h3 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 300;
+  }
+}
